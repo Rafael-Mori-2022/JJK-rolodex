@@ -1,6 +1,5 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -8,26 +7,35 @@ class App extends Component {
     super();
     
     this.state = {
-      characters : []
+      characters : [],
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/api/v1/').then(response => console.log(response.body));
+    fetch('http://[::1]:5000/api/v1/characters/')
+    .then(response => response.json())
+    .then(data => { this.setState({characters: data})}, 
+    () => {
+      console.log(this.state);
+    });
   }
 
   render() {
     return (
       <div className="App">
-        {
-          this.state.characters.map((characters) => {
-            return ( 
-            <div key={characters.id}>
-              <h1>{characters.name}</h1>
-            </div>)
-          })
-        }
-      </div>
+      {
+        this.state.characters.map((character) => {
+          return ( 
+            <div key={character.id}>
+              <h1>{character.name}</h1>
+              <p>Idade: {character.age}</p>
+              <p>Classe: {character.grade}</p>
+              <a href={character.image_url} target='_blank' rel='noreferrer'><img src={character.image_url} alt={character.name} /></a>
+            </div>
+          );
+        })
+      }
+    </div>
     );
   }
 }
