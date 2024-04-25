@@ -7,23 +7,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.card-container {
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    background-color: #7851A7;
-    border-radius: 5px;
-    cursor: pointer;
-    transform: translateZ(0);
-    transition: transform 0.25s ease-out;
-
-    .p{
-       text-align: flex-end;
-    }
-  }
-  
-  .card-container:hover {
-    transform: scale(1.05);
-  }
-  

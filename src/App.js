@@ -46,6 +46,9 @@ class App extends Component {
     // console.log('Rendered in AppJS');
     return (
       <div className="App">
+
+        <h1 className='app-title'>Jujutsu Rolodex</h1>
+
         <SearchBox 
         className='search-box' 
         onChangeHandler={onSearchChange} 

@@ -1,6 +1,7 @@
 import {Component} from 'react';
 
 import './card-list.styles.css'
+import Card from '../card/card.component';
 
 class CardList extends Component { // You cannot have multiples components!
 
@@ -13,14 +14,8 @@ class CardList extends Component { // You cannot have multiples components!
         return (
             <div className='card-list'>
                 {characters.map(character => {
-                const {id, name, status, grade, image_url} = character;
                 return ( 
-                    <div className='card-container' key={id}>
-                        <h1 >{name}</h1>
-                        <img src={image_url} alt={name} />
-                        <p>Status: {status !== null && status.length ? status : 'Undefined!'}</p>
-                        <p>Grade: {grade !== null && grade.length ? grade : 'Undefined!'}</p>
-                    </div>
+                    <Card character={character}/>
                 )})}
             </div>
         );
