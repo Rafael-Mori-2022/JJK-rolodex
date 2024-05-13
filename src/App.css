@@ -13,6 +13,8 @@ body {
     #931cf5f8 120%
   );
   text-align: center;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 h1,p {
